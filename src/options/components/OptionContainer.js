@@ -72,6 +72,17 @@ export default props => {
         />
       );
       break;
+    case "time":
+      formId = id;
+      optionForm = (
+        <input
+          type="time"
+          id={formId}
+          onChange={handleValueChange}
+          defaultValue={getSettings(id)}
+        />
+      );
+      break;
     case "textarea":
       formId = id;
       optionForm = (

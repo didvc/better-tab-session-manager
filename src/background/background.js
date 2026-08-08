@@ -16,6 +16,12 @@ import { replacePage } from "./replace";
 import importSessions from "./import";
 import { backupSessions, resetLastBackupTime } from "./backup";
 import {
+  SCHEDULED_BACKUP_ALARM,
+  setScheduledBackup,
+  handleScheduledBackup,
+  runMissedScheduledBackup
+} from "./scheduledBackup";
+import {
   loadCurrentSession,
   saveCurrentSession,
   saveSession,
@@ -65,7 +71,12 @@ const onStartupListener = async () => {
   else if (startupBehavior === "startupSession") openStartupSessions();
   setAutoSave();
   syncCloudAuto();
-  browser.alarms.create("backupSessions", { delayInMinutes: 0.5 });
+  if (getSettings("ifBackupOnStartup")) {
+    browser.alarms.create("backupSessions", { delayInMinutes: 0.5 });
+  }
+  setScheduledBackup();
+  // 起動直後はセッションの復元などで混み合うため、取り逃し分は少し遅らせて実行する
+  browser.alarms.create("missedScheduledBackup", { delayInMinutes: 1 });
 };
 
 const onMessageListener = async (request, sender, sendResponse) => {
@@ -194,6 +205,7 @@ const onChangeStorageListener = async (changes, areaName) => {
   setAutoSave(changes, areaName);
   updateLogLevel();
   resetLastBackupTime(changes);
+  setScheduledBackup(changes, areaName);
 };
 
 const onAlarmListener = async alarmInfo => {
@@ -204,6 +216,10 @@ const onAlarmListener = async alarmInfo => {
       return autoSaveRegular();
     case "backupSessions":
       return backupSessions();
+    case SCHEDULED_BACKUP_ALARM:
+      return handleScheduledBackup();
+    case "missedScheduledBackup":
+      return runMissedScheduledBackup();
   }
 };
 

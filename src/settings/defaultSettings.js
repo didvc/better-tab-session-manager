@@ -265,8 +265,73 @@ export default [
         title: "ifBackupLabel",
         captions: ["ifBackupCaptionLabel"],
         type: "checkbox",
-        default: false,
+        default: true,
         childElements: [
+          {
+            id: "ifBackupOnStartup",
+            title: "ifBackupOnStartupLabel",
+            captions: ["ifBackupOnStartupCaptionLabel"],
+            type: "checkbox",
+            default: true
+          },
+          {
+            id: "ifScheduledBackup",
+            title: "ifScheduledBackupLabel",
+            captions: ["ifScheduledBackupCaptionLabel"],
+            type: "checkbox",
+            default: true
+          },
+          {
+            id: "scheduledBackupFrequency",
+            title: "scheduledBackupFrequencyLabel",
+            captions: ["scheduledBackupFrequencyCaptionLabel"],
+            type: "select",
+            default: "daily",
+            options: [
+              {
+                name: "scheduledBackupHourlyLabel",
+                value: "hourly"
+              },
+              {
+                name: "scheduledBackupDailyLabel",
+                value: "daily"
+              },
+              {
+                name: "scheduledBackupWeeklyLabel",
+                value: "weekly"
+              }
+            ]
+          },
+          {
+            id: "scheduledBackupTime",
+            title: "scheduledBackupTimeLabel",
+            captions: ["scheduledBackupTimeCaptionLabel"],
+            type: "time",
+            default: "06:00"
+          },
+          {
+            id: "scheduledBackupDayOfWeek",
+            title: "scheduledBackupDayOfWeekLabel",
+            captions: ["scheduledBackupDayOfWeekCaptionLabel"],
+            type: "select",
+            default: "0",
+            options: [
+              { name: "sundayLabel", value: "0" },
+              { name: "mondayLabel", value: "1" },
+              { name: "tuesdayLabel", value: "2" },
+              { name: "wednesdayLabel", value: "3" },
+              { name: "thursdayLabel", value: "4" },
+              { name: "fridayLabel", value: "5" },
+              { name: "saturdayLabel", value: "6" }
+            ]
+          },
+          {
+            id: "shouldRunMissedBackup",
+            title: "shouldRunMissedBackupLabel",
+            captions: ["shouldRunMissedBackupCaptionLabel"],
+            type: "checkbox",
+            default: true
+          },
           {
             id: "individualBackup",
             title: "individualBackupLabel",
@@ -387,7 +452,7 @@ export default [
         title: "themeLabel",
         captions: ["themeCaptionLabel"],
         type: "select",
-        default: 'system',
+        default: "system",
         options: [
           {
             name: "lightLabel",

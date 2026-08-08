@@ -42,6 +42,7 @@
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^1.6.0",
+    "playwright": "^1.62.1",
     "prettier": "^3.0.0",
     "sass": "^1.86.0",
     "sass-loader": "^14.2.1",
@@ -53,7 +54,10 @@
     "watch-dev": "webpack --config webpack.config.dev.js --watch",
     "build": "webpack --config webpack.config.dist.js",
     "format": "prettier --write \"src/**/*.{js,jsx,json,scss,html,md}\" \"*.{js,json,md}\"",
-    "format:check": "prettier --check \"src/**/*.{js,jsx,json,scss,html,md}\" \"*.{js,json,md}\""
+    "format:check": "prettier --check \"src/**/*.{js,jsx,json,scss,html,md}\" \"*.{js,json,md}\"",
+    "test": "node test/schedule.unit.js",
+    "test:e2e": "node test/scheduledBackup.e2e.js",
+    "screenshots": "node test/screenshots.js"
   },
   "repository": {
     "type": "git",

@@ -396,7 +396,73 @@
     "message": "Save backup"
   },
   "ifBackupCaptionLabel": {
-    "message": "When browser starts up, create a backup file of sessions and save it in the download folder."
+    "message": "Create backup files of sessions and save them in the download folder."
+  },
+  "ifBackupOnStartupLabel": {
+    "message": "Back up when the browser starts"
+  },
+  "ifBackupOnStartupCaptionLabel": {
+    "message": "Create a backup shortly after the browser starts up."
+  },
+  "ifScheduledBackupLabel": {
+    "message": "Back up on a schedule"
+  },
+  "ifScheduledBackupCaptionLabel": {
+    "message": "Automatically run Export Sessions at a set time while the browser is running.<br>Only sessions changed since the last backup are exported when Individual backup is enabled."
+  },
+  "scheduledBackupFrequencyLabel": {
+    "message": "Frequency"
+  },
+  "scheduledBackupFrequencyCaptionLabel": {
+    "message": "How often the scheduled backup runs."
+  },
+  "scheduledBackupHourlyLabel": {
+    "message": "Every hour"
+  },
+  "scheduledBackupDailyLabel": {
+    "message": "Every day"
+  },
+  "scheduledBackupWeeklyLabel": {
+    "message": "Every week"
+  },
+  "scheduledBackupTimeLabel": {
+    "message": "Time"
+  },
+  "scheduledBackupTimeCaptionLabel": {
+    "message": "The time of day to run the backup, in your computer's local time zone.<br>When frequency is Every hour, only the minutes are used."
+  },
+  "scheduledBackupDayOfWeekLabel": {
+    "message": "Day of the week"
+  },
+  "scheduledBackupDayOfWeekCaptionLabel": {
+    "message": "Used only when frequency is Every week."
+  },
+  "sundayLabel": {
+    "message": "Sunday"
+  },
+  "mondayLabel": {
+    "message": "Monday"
+  },
+  "tuesdayLabel": {
+    "message": "Tuesday"
+  },
+  "wednesdayLabel": {
+    "message": "Wednesday"
+  },
+  "thursdayLabel": {
+    "message": "Thursday"
+  },
+  "fridayLabel": {
+    "message": "Friday"
+  },
+  "saturdayLabel": {
+    "message": "Saturday"
+  },
+  "shouldRunMissedBackupLabel": {
+    "message": "Run missed backups on startup"
+  },
+  "shouldRunMissedBackupCaptionLabel": {
+    "message": "If the browser was closed at the scheduled time, run the backup once shortly after the next startup."
   },
   "individualBackupLabel": {
     "message": "Individual backup"

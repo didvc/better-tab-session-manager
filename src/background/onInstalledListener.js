@@ -6,6 +6,7 @@ import { init } from "./background";
 import updateOldSessions from "./updateOldSessions";
 import { setSessionStartTime } from "./save";
 import { setAutoSave } from "./autoSave";
+import { setScheduledBackup } from "./scheduledBackup";
 
 const logDir = "background/onInstalledListener";
 
@@ -30,4 +31,5 @@ export default async details => {
   setSettings("isShowUpdated", true);
   await updateOldSessions();
   setAutoSave();
+  setScheduledBackup();
 };
